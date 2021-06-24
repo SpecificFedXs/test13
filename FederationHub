@@ -1,0 +1,87 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local venyx = library.new("Federation", 5013109572)
+
+--Themes
+local themes = {
+    Background = Color3.fromRGB(24, 24, 24),
+    Glow = Color3.fromRGB(0, 0, 0),
+    Accent = Color3.fromRGB(10, 10, 10),
+    LightContrast = Color3.fromRGB(20, 20, 20),
+    DarkContrast = Color3.fromRGB(14, 14, 14),  
+    TextColor = Color3.fromRGB(255, 255, 255)
+    }
+
+--First Page
+
+local page = venyx:addPage("Scripts", 5012544693)
+local section1 = page:addSection("Admin Scripts")
+local section2 = page:addSection("FE Scripts")
+section1:addButton("Load Fates Admin", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+    end)
+    section1:addButton("Load Infinite Yield", function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end)
+        section1:addButton("Load CMD-X", function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+            end)
+
+            -- 2nd Page
+
+            local page = venyx:addPage("Da Hood Scripts", 5012544693)
+            local section5 = page:addSection("Da Hood Scripts")
+            section5:addButton("Load Raycodex", function()
+                loadstring(game:GetObjects("rbxassetid://5812737894")[1].Source)()
+                end)
+                section5:addButton("Faded", function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
+                    end)
+                    section5:addButton("Valliant", function()
+                        pcall(function()
+                            if not game:IsLoaded() then
+                            repeat
+                            wait()
+                            until game:IsLoaded()
+                        end
+                        if game:IsLoaded() then
+                            for Valiant=1,1 do
+                            wait()
+                            loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\86\97\110\105\115\50\53\50\47\118\97\108\105\97\110\116\47\109\97\105\110\47\46\103\105\116\105\103\110\111\114\101\39\41\44\32\116\114\117\101\41\41\40\41\10")()
+                            end
+                        end
+                        end)
+                        end)
+                        section5:addButton("Legacy Hub", function()
+                            repeat
+                                wait();
+                            until game:IsLoaded();
+                            loadstring(game:HttpGet('https://raw.githubusercontent.com/Legacy-Foundation/Legacy-Hub/main/.lua'))();                            
+                            end)
+                            local section6 = page:addSection("Da Hood Script Hub")
+                            section6:addButton("Load My Hub", function()
+                                loadstring(game:HttpGet("https://raw.githubusercontent.com/SpecificFedXs/Source1/main/Source"))()
+                                end)
+
+
+
+
+
+
+    --3rd Page
+
+    local page = venyx:addPage("Settings", 5012544693)
+    local section3 = page:addSection("Keybinds")
+    section3:addKeybind("Toggle Keybind", Enum.KeyCode.V, function()
+        print("Activated Keybind")
+        venyx:toggle()
+        end, function()
+        print("Changed Keybind")
+        end)
+        local theme = venyx:addPage("Theme", 5012544693)
+        local colors = theme:addSection("Themes")
+        for theme, color in pairs(themes) do 
+            colors:addColorPicker(theme, color, function(color3)
+            venyx:setTheme(theme, color3)
+            end)
+            end
+            venyx:SelectPage(venyx.pages[1], true)
